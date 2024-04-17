@@ -1,0 +1,40 @@
+.rain-effect-container {
+  height: 100%;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.rain-container {
+  height: 100%;
+  width: 100%;
+  transform: skewX(-15deg);
+  position: absolute;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.rain-container.front {
+  transform: skewX(-10deg);
+}
+
+.rain-container > div {
+  height: 150px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  left: 50%;
+  animation: 2s rain linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-450px);
+  }
+  40% {
+    transform: translateY(450px);
+  }
+  100% {
+    transform: translateY(2500px);
+  }
+}
