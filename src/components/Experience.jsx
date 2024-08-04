@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div id='experience'>
+    <div id='experience' className='pb-16'>
       <motion.h2
         whileInView={{opacity: 1, y: 0}}
         initial={{opacity: 0, y: -100}}
         transition={{duration: 1}}
-        className='lg:my-16 my-12 text-center font-thin text-4xl'>Experience</motion.h2>
+        className='mt-16 mb-12 lg:pb-10 text-center font-thin lg:text-4xl text-3xl'>Experience</motion.h2>
       
       <div>
         {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-4 flex flex-wrap lg:justify-center md:justify-center">
+          <div key={index} className="mb-4 flex flex-wrap lg:justify-center md:justify-center ">
 
             <motion.div
               whileInView={{opacity: 1, x: 0}}
@@ -27,7 +27,7 @@ const Experience = () => {
               whileInView={{opacity: 1, x: 0}}
               initial={{opacity: 0, x: 100}}
               transition={{duration: 1}}
-              className="w-full max-w-xl lg:w-3/4 md:w-3/4 lg:hover:bg-neutral-800 lg:hover:bg-opacity-35 rounded-2xl cursor-pointer font-thin p-4">
+              className="w-full max-w-xl lg:w-3/4 md:w-3/4 lg:hover:bg-neutral-800 lg:hover:bg-opacity-35 rounded-2xl cursor-pointer font-thin p-4 text-[14px] lg:text-md">
               <h6 className='mb-2 font-semibold'>{experience.role} -{" "}
                 <span className='text-purple-100'>{experience.company}</span>
               </h6>

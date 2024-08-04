@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
+import { Bounce, Flip, ToastContainer, Zoom, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -10,6 +13,17 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!name || !email || !message) {
+      toast.warning('Please fill in all fields', {transition: Zoom});
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.warning('Please enter a valid email address', {transition: Zoom});
+      return;
+    }
+  
     const serviceId = 'service_ev70loh';
     const templateId = 'template_8btfn8j';
     const publicKey = 'IiAyIMWGWsij06yvK';
@@ -20,24 +34,26 @@ const Contact = () => {
       to_name: 'Sreedev v',
       message: message,
     };
-
+  
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((res) => {
         console.log('Email sent successfully!', res);
         setName('');
         setEmail('');
         setMessage('');
+        toast.success('Email sent successfully!', {transition: Zoom});
       })
       .catch((err) => {
         console.log('Error sending email', err);
+        toast.error('Error sending email', {transition: Zoom});
       });
   };
 
   return (
-    <div id='contact' className='container  '>
-      <div className='lg:flex lg:flex-wrap lg:mx-20 my-16'>
+    <div id='contact' className='container lg:pt-32 pb-20'>
+      <div className='lg:flex lg:flex-wrap lg:mx-20 '>
 
-      <div className='lg:w-2/4 lg:ms-20 mb-20'>
+      <div className='lg:w-2/4 lg:ms-20 mb-20 pt-12 lg:pt-0'>
           <motion.h2
           whileInView={{opacity:1,x:0}}
           initial={{opacity:0,x:-100}}
@@ -48,7 +64,7 @@ const Contact = () => {
           initial={{opacity:0,x:-100}}
           transition={{duration:1}}
           >
-            <p className='lg:m-5 lg:p-8 lg:text-start text-center font-light'>Expect a quick turnaround time once you've submitted your message. I prioritize efficient communication to ensure your inquiries are addressed promptly and satisfactorily.</p>
+            <p className='lg:m-5 lg:p-8 lg:text-start text-[14px] text-center font-light'>Expect a quick turnaround time once you've submitted your message. I prioritize efficient communication to ensure your inquiries are addressed promptly and satisfactorily.</p>
           </motion.div>
           
         </div>
@@ -57,7 +73,7 @@ const Contact = () => {
         whileInView={{opacity:1,x:0}}
         initial={{opacity:0,x:100}}
         transition={{duration:1}}
-        className='lg:w-1/4 px-3 py-10 lg:px-6 lg:py-12 lg:ms-20 border border-neutral-800 rounded-2xl bg-neutral-800 bg-opacity-10'>
+        className='lg:w-1/4 px-3 py-10 lg:px-6 lg:py-12 lg:ms-20 border-0 rounded-2xl bg-violet-950 bg-opacity-5 shadow-sm  shadow-violet-900'>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="rounded-md shadow-sm -space-y-px ">
               <div>
@@ -101,10 +117,21 @@ const Contact = () => {
         </motion.div>
 
       </div>
-      <div className='my-20 border-t-2 border-neutral-900 pt-6'>
-        <div className="text-center text-sm text-neutral-700 font-thin">2023 Sreedev.v.Portfolio
-        </div>
-      </div>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        limit={2}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Flip
+        />
     </div>
   );
 };

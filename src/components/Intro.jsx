@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import { BiDownload } from "react-icons/bi";
-import CV from '../assets/CV.pdf'
 
 export const container =(delay)=>({
   hidden:{ x:-100, opacity:0},
@@ -22,27 +21,27 @@ export const container =(delay)=>({
 
 const Intro = () => {
   return (
-    <div className='h-[80vh] lg:ms-16'>
-      <div className="flex flex-col items-start lg:px-40 lg:mb-32 px-6 ">   
+    <div id='intro' className='h-[100vh] lg:ms-16 '>
+      <div className="flex flex-col items-start lg:px-40 top-44 absolute">   
 
            <motion.span 
            variants={container(0)}
            initial="hidden"
            animate="visible"
-           className="font-mono bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-md lg:text-2xl tracking-tight text-transparent mt-16 ">hi, i'm sreedev.</motion.span>
+           className="font-mono bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-md  tracking-tight text-transparent mt-16 ">hi, i'm sreedev.</motion.span>
 
            <motion.h1 
            variants={container(1.5)}
            initial="hidden"
            animate="visible"
-           className=' tracking-tight text-4xl lg:text-5xl md:text-4xl mt-1 '>i build stuff for the web 
+           className=' tracking-tight text-3xl lg:text-4xl mt-1 '>i build stuff for the web 
            </motion.h1>
 
            <motion.h1 
            variants={container(1.8)}
            initial="hidden"
            animate="visible"
-           className=' tracking-tight text-4xl lg:text-5xl md:text-4xl pb-4 mt-1'>
+           className=' tracking-tight text-3xl lg:text-4xl pb-4 mt-1'>
            using react, javascript and node. 
            </motion.h1>
 
@@ -51,7 +50,7 @@ const Intro = () => {
            initial="hidden2"
            animate="visible2"
            href="https://drive.google.com/drive/folders/17HblJCT6TSGOWh0--VSHmuiWGxt5tdUS?usp=sharing" download target='blank'>
-            <div className='p-2 mt-2 gap-4 text-[9px] md:text-sm lg:text-md flex flex-wrap items-center rounded-lg text-neutral-300 hover:text-violet-800 active:animate-bounce hover:cursor-pointer border border-neutral-800 border-y-transparent hover:shadow-inner hover:shadow-violet-900 active:text-violet-500 font-light'>
+            <div className='p-2 mt-2 gap-4 text-[9px] lg:text-sm flex flex-wrap items-center rounded-lg text-neutral-300 hover:text-violet-800 active:animate-bounce hover:cursor-pointer border border-neutral-800 border-y-transparent hover:shadow hover:shadow-violet-900 active:text-violet-500 font-light'>
               <p>Download CV</p>
               <BiDownload/>  
             </div>          

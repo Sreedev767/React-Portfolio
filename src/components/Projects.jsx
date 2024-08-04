@@ -41,13 +41,13 @@ const Projects = () => {
   };
 
   return (
-    <div className='lg:mt-60 py-40 font-thin'>
-      <div className='h-100 pb-4 my-1' id='projects'>
+    <div id='projects' className='font-thin'>
+      <div className='h-100 pb-5' >
         <motion.h1
           whileInView={{opacity:1,y:0}}
           initial={{opacity:0,y:-100}}
           transition={{duration:1}}
-          className='lg:my-16 my-12 text-center font-thin text-4xl'>Projects</motion.h1>
+          className='mt-16 mb-12 text-center font-thin lg:text-4xl text-3xl'>Projects</motion.h1>
       </div>
       <div className='lg:px-20 lg:mx-20'>
         <Slider {...settings}>
@@ -57,7 +57,7 @@ const Projects = () => {
                 whileInView={{opacity:1,y:0}}
                 initial={{opacity:0,y:100}}
                 transition={{duration:1}}
-                className="mb-2 h-1/2 ">
+                className="mb-2 px-5 h-1/2 text-[14px]">
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {project.title}
                 </Typography>
@@ -69,9 +69,9 @@ const Projects = () => {
                 whileInView={{opacity:1,y:0}}
                 initial={{opacity:0,y:100}}
                 transition={{duration:1}}
-                className='py-24'>
+                className='py-24 px-5'>
                 {project.technologies.map((tech, index) => (
-                  <span key={index} className='mr-2 rounded bg-neutral-900 p-2 lg:text-[10px] md:text-[10px] text-[11px] font-medium text-violet-700'>{tech}</span>
+                  <span key={index} className='mr-2 p-2 rounded bg-neutral-900 text-[10px] font-medium text-violet-700'>{tech}</span>
                 ))}
               </motion.div>
             </div>

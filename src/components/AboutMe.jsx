@@ -5,12 +5,12 @@ import about from '../assets/about.png'
 
 const AboutMe = () => {
   return (
-    <div id='aboutme' className='my-48'>
+    <div id='aboutme' className='pb-16'>
       <motion.h1
       whileInView={{opacity: 1, y: 0}}
       initial={{opacity: 0, y: -100}}
       transition={{duration: 1}}
-      className='lg:my-16 my-12 text-center font-thin text-4xl'>
+      className='mt-16 mb-12 text-center font-thin lg:text-4xl text-3xl'>
         About
         <span className='text-neutral-500'> Me</span>
       </motion.h1>
@@ -28,8 +28,8 @@ const AboutMe = () => {
           transition={{duration:0.8}}
           className="w-full lg:w-1/2 lg:p-8 p-2">
           <div className="flex flex-col justify-center items-center lg:items-start lg:justify-start">
-            <span className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent pt-8">Full stack developer</span>
-            <p className='my-2 max-w-xl py-8 font-light'>{ABOUT_TEXT}</p>
+            <span className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text lg:text-3xl text-2xl tracking-tight text-transparent pt-8">Full stack developer</span>
+            <p className='my-2 max-w-xl py-8 font-light lg:text-[16px] text-[14px]'>{ABOUT_TEXT}</p>
           </div>
         </motion.div>
       </div>

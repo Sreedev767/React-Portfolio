@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiHomeAlt, BiUser } from "react-icons/bi";
 import { BsClipboardData, BsBriefcase, BsChatSquare } from "react-icons/bs";
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { container } from './Intro';
 import { motion } from 'framer-motion';
 
@@ -27,11 +27,11 @@ const AnimatedTab = ({ label, isActive, onClick }) => {
 
 const Navbar2 = () => {
   const tabs = [
-    { id: "aboutme", label: <BiUser /> },
-    { id: "experience", label: <BsClipboardData /> },
-    { id: "intro", label: <BiHomeAlt /> },
-    { id: "projects", label: <BsBriefcase /> },
-    { id: "contact", label: <BsChatSquare /> }
+    { id: "/aboutme", label: <BiUser /> },
+    { id: "/experience", label: <BsClipboardData /> },
+    { id: "/", label: <BiHomeAlt /> },
+    { id: "/projects", label: <BsBriefcase /> },
+    { id: "/contact", label: <BsChatSquare /> }
   ];
 
   const [activeTab, setActiveTab] = React.useState(tabs[2].id);
